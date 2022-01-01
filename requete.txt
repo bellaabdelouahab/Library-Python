@@ -1,0 +1,5 @@
+
+  for(i=0;i<500;i++){
+  db.ReservedBooks.insertOne({"_id":i, "Full Name":"ali"+i,"Cin": "xavier" , "Book Title" : "Gilead"
+  })
+  }
