@@ -5,6 +5,39 @@
     <span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >&#9776; Reservation</span>
     <span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >&#9776; Reservation</span>
     </div>
-
-
+    <div class="col-div-8" style="margin-top: 15vh;">
+        <div class="box-8 Table">
+            <div class="content-box">
+                <p>Recent Added Books <span class=ShowAll>See All</span></p>
+                <br>
+            </div>
+            <table >
+                <tr>
+                <th>Full Name</th>
+                <th>Cin</th>
+                <th>Book Title</th>
+                <th>Validation</th>
+                </tr>
+                {% if ToReserve %}
+                {% for result in ToReserve %}
+                    <tr >
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                        <td>{{ result[3] }}</td>
+                        <td>
+                            <form action="/ToReserve" method="post" name="Cancelation" style="display:inline" >
+                                <input type="text" style="display: none;" name="Cancelation_i" value={{result[1]}}>
+                                <input type="submit" value="Cancel">
+                            </form>
+                            <form action="/ToReserve" method="post" name="Validation" style="display:inline">
+                                <input type="text" style="display: none;" name="Validation_i" value={{result[1]}}>
+                                <input type="submit" value="Reserve">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+    </div>
 {% endblock content %}

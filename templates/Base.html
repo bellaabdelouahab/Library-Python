@@ -44,6 +44,18 @@ $(".nav2").click(function(){
     $(".nav").css('display','block');
     $(".nav2").css('display','none');
 });
+$(".ShowAll").click(function(){
+    if($(".ShowAll").text()=="See All"){
+        console.log($(".ShowAll").text());
+    $(".Table").css("height","70vh")
+    $(".Table").css("overflow-y","scroll")
+    $(".ShowAll").text("hide")
+    return ;
+    }
+    $(".Table").css("height","358px")
+    $(".Table").css("overflow-y","hidden")
+    $(".ShowAll").text("See All")
+})
 
 </script>
 

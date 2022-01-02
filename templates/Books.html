@@ -11,22 +11,26 @@
 <div class="clearfix"></div>
 </div>
 <div class="col-div-8">
-    <div class="box-8">
+    <div class="box-8 Table">
         <div class="content-box">
-            <p>Recent Added Books <span>Sell All</span></p>
+            <p>Recent Added Books <span class=ShowAll>See All</span></p>
             <br>
         </div>
         <table>
             <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Added Date</th>
             </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
+            {% if Books %}
+                {% for result in Books %}
+                    <tr >
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
         </table>
     </div>
 </div>
