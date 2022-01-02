@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="head">
+        <div class="col-div-6">
+    <span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >&#9776; Books To Add</span>
+    <span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >&#9776; Books To Add</span>
+    </div>
+
+
+    <div class="col-div-8" style="margin-top: 15vh;">
+        <div class="box-8 Table">
+            <div class="content-box">
+                <p>Recent Added Books <span class=ShowAll>See All</span></p>
+                <br>
+            </div>
+            <table >
+                <tr>
+                <th>title</th>
+                <th>authors</th>
+                <th>categories</th>
+                <th>published year</th>
+                <th>Actions</th>
+                </tr>
+                {% if ToAdd %}
+                {% for result in ToAdd %}
+                    <tr >
+                        <form action="/BooksToAdd" method="post" name="Cancelation" style="display:inline" >
+                            <td><input type="text" style="width: 150px;text-align: center;" class="{{result[0]}}1" name='title' value='{{result[1]}}' disabled></td>
+                            <td><input type="text" style="width: 150px;text-align: center;" class="{{result[0]}}2" value='{{result[2]}}' disabled></td>
+                            <td><input type="text" style="width: 150px;text-align: center;" class="{{result[0]}}3" value='{{result[3]}}' disabled></td>
+                            <td><input type="text" style="width: 150px;text-align: center;" class="{{result[0]}}4" value='{{result[4]}}' disabled></td>
+                            <td>
+                                <input type="submit" name="CANCELBOOK" value="Cancel">
+                                <input type="button" style="width: 100px" class="BookToAdd_Evaluate" name="ADDBOOK" id={{result[0]}} value="Evaluate">
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+    </div>
+
+
+    <div class="col-div-6">
+    </div>
+    <div class="clearfix"></div>
+    </div>
+
+
+{% endblock content %}

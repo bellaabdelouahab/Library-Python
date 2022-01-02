@@ -11,7 +11,7 @@
     <a href="/" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
     <a href="ToReserve" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Reserve</a>
     <a href="Books"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Books</a>
-    <a href="Orders"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Orders</a>
+    <a href="BooksToAdd"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Books To Add</a>
     <a href="Tasks"class="icon-a"><i class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Tasks</a>
 </div>
 <div id="main">
@@ -55,6 +55,15 @@ $(".ShowAll").click(function(){
     $(".Table").css("height","358px")
     $(".Table").css("overflow-y","hidden")
     $(".ShowAll").text("See All")
+})
+$(".BookToAdd_Evaluate").click(function(e){
+    $("."+$(this).attr("id")+"1").prop("disabled",false)
+    $("."+$(this).attr("id")+"2").prop("disabled",false)
+    $("."+$(this).attr("id")+"3").prop("disabled",false)
+    $("."+$(this).attr("id")+"4").prop("disabled",false)
+    $(this).css("background-color","green")
+    if ($(this).val()=="Add Book")$(".BookToAdd_Evaluate").prop("type","submit")
+    $(this).prop("value","Add Book")
 })
 
 </script>

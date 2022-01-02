@@ -29,7 +29,9 @@
 	</div>
 	<div class="col-div-3">
 		<div class="box">
-			<p>99<br/><span>Book To Add</span></p>
+			{% if BookToAdd %}
+				<p>{{BookToAdd}}<br/><span>Reserved Books</span></p>
+			{% endif %}
 			<i class="fa fa-shopping-bag box-icon"></i>
 		</div>
 	</div>
