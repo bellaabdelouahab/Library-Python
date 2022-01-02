@@ -1,5 +1,27 @@
-
+//////////Reserved Books ///////////////// (Reserved Books = Projects)
   for(i=0;i<500;i++){
   db.ReservedBooks.insertOne({"_id":i, "Full Name":"ali"+i,"Cin": "xavier" , "Book Title" : "Gilead"
   })
   }
+
+ ////////////Books To Reserve //////////////  
+ for(i=0;i<300;i++){
+  db.BooksToReserve.insertOne({"_id":i, "authors":"Charles Osbrne"+i,"Book Title": "Spider's Web" , "Category" : "Detective and mystery stories"
+  })
+  } 
+
+
+/////////// Projects /////////// #insert project = insert reserved books
+for(i=0;i<500;i++){
+  db.Projects.insertOne({"_id":i, "Full Name":"ali"+i,"Cin": "xavier" , "Book Title" : "Gilead"
+  })
+  }
+
+  ////////// Top Selling Projects //////  #find duplicated books title
+  db.Projects.aggregate([
+    {"$group" : { "_id": "$Book title", "count": { "$sum": 1 } } },
+    {"$match": {"_id" :{ "$ne" : null } , "count" : {"$gt": 1} } }, 
+    {"$project": {"name" : "$_id", "_id" : 0} }
+]);
+
+//////////

@@ -1,6 +1,5 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,redirect,url_for
 from pymongo import MongoClient
-import pymongo
 
 app = Flask(__name__)
 myclient = MongoClient('localhost', 27017) 
@@ -23,11 +22,10 @@ def home_page():
         a+=1
     return render_template("index.html" , total = x , reserved = a)
 
+@app.route("/Customers")
+def Customers():
+    return render_template("Customers")
 
-
-@app.route("/reserve")
-def reserve():
-    return render_template("Reservable.html")
 
 if __name__ == "__main__":
     app.run(debug = True)
