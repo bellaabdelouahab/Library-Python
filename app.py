@@ -26,7 +26,8 @@ def home_page():
     booksToAdd = BooksToAdd_.find({})
     for y in booksToAdd:
         d+=1
-    return render_template("DashBoard.html" , total = x ,BookToAdd=d, reserved = a,ToReserve=c)
+    last_Add=reserved = my_collection.find().sort("_id",-1).limit(10)
+    return render_template("DashBoard.html" , total = x ,BookToAdd=d, reserved = a,ToReserve=c,LastAdded=last_Add)
 
 @app.route("/ToReserve",methods=["GET","POST"])
 def Customers():
@@ -66,16 +67,20 @@ def Books():
     return render_template("Books.html",Books=Books)
 @app.route("/BooksToAdd",methods=["GET","POST"])
 def BooksToAdd():
+    b = BooksToAdd_.find({"title":request.form.get("title")})
+    c={}
+    for i in b:
+        for key,value in i.items():
+            c[key]=value
     if(request.form.get("ADDBOOK")):
-        b = BooksToAdd_.find({"title":request.form.get("title")})
-        c={}
-        for i in b:
-            for key,value in i.items():
-                c[key]=value
+        
+        
         try:
             my_collection.insert_one(c)
         except(Exception):
             print("")
+        BooksToAdd_.delete_one(c)
+    if(request.form.get("CANCELBOOK")):
         BooksToAdd_.delete_one(c)
     books = BooksToAdd_.find({"title":{"$exists":True},"authors":{"$exists":True},"categories":{"$exists":True},"published_year":{"$exists":True}},{"_id":1,"title":1,"authors":1,"categories":1,"published_year":1}).limit(50)
     BooksToAdd=[]

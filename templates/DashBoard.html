@@ -57,11 +57,15 @@
 					<th>Contact</th>
 					<th>Country</th>
 				</tr>
-				<tr>
-					<td>Alfreds Futterkiste</td>
-					<td>Maria Anders</td>
-					<td>Germany</td>
-				</tr>
+				{% if Books %}
+					{% for result in Books %}
+						<tr >
+							<td>{{ result[0] }}</td>
+							<td>{{ result[1] }}</td>
+							<td>{{ result[2] }}</td>
+						</tr>
+					{% endfor %}
+				{% endif %}
 			</table>
 		</div>
 	</div>
