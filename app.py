@@ -20,12 +20,15 @@ def home_page():
     a=0
     for y in reserved:
         a+=1
-    return render_template("index.html" , total = x , reserved = a)
+    return render_template("DashBoard.html" , total = x , reserved = a)
 
-@app.route("/Customers")
+@app.route("/ToReserve")
 def Customers():
-    return render_template("Customers")
+    return render_template("Reserve.html")
 
+@app.route("/Books")
+def Books():
+    return render_template("Books.html")
 
 if __name__ == "__main__":
     app.run(debug = True)
