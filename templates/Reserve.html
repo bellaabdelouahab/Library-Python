@@ -8,36 +8,30 @@
     <div class="col-div-8" style="margin-top: 15vh;">
         <div class="box-8 Table">
             <div class="content-box">
-                <p>Recent Added Books <span class=ShowAll>See All</span></p>
-                <br>
+                <p>
+                    <span style="display: inline;float:left;">Recent Added Books</span><br>
+                    <div class="tdata">
+                        <button class="prevbtn">Prev</button>
+                        <p class="Elem">0-20/0</p>
+                        <button class="nextbtn">Next</button>
+                    </div>
+                </p>
             </div>
-            <table >
-                <tr>
-                <th>Full Name</th>
-                <th>Cin</th>
-                <th>Book Title</th>
-                <th>Validation</th>
-                </tr>
-                {% if ToReserve %}
-                {% for result in ToReserve %}
-                    <tr >
-                        <td>{{ result[1] }}</td>
-                        <td>{{ result[2] }}</td>
-                        <td>{{ result[3] }}</td>
-                        <td>
-                            <form action="/ToReserve" method="post" name="Cancelation" style="display:inline" >
-                                <input type="text" style="display: none;" name="Cancelation_i" value={{result[1]}}>
-                                <input type="submit" name="testing" value="Cancel">
-                            </form>
-                            <form action="/ToReserve" method="post" name="Validation" style="display:inline">
-                                <input type="text" style="display: none;" name="Validation_i" value={{result[1]}}>
-                                <input type="submit" value="Reserve">
-                            </form>
-                        </td>
+            <br>
+            <div style="overflow-y:scroll;height:46.5vh;">
+                <table class="tableData">
+                    <tr>
+                    <th>Full Name</th>
+                    <th>Cin</th>
+                    <th>Book Title</th>
+                    <th>Validation</th>
                     </tr>
-                {% endfor %}
-                {% endif %}
-            </table>
+                </table>
+            </div>
         </div>
     </div>
+<script>
+    var Data = JSON.parse('{{ Data | tojson | safe}}');
+</script>
+<script src="{{ url_for('static',filename='Data.js') }}"></script>
 {% endblock content %}

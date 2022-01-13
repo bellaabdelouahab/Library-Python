@@ -3,11 +3,12 @@
 <head>
 	<title></title>
     <link rel="stylesheet" href="{{url_for('static' , filename ='style.css')}}" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{{ url_for('static',filename='jquery-3.6.0.js') }}"></script>
 </head>
 <body>
 <div id="mySidenav" class="sidenav">
-	<p class="logo"><span>B</span>-ABDO</p>
+	<p class="logo"><span>BB</span>-LIBRARY</p>
     <a href="/" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
     <a href="ToReserve" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp; Reserve</a>
     <a href="Books"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Books</a>
@@ -21,7 +22,6 @@
 <!-- end Dynamic Code -->
 </div>	
 <div class="clearfix"></div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(".nav").click(function(){
         $("#mySidenav").css('width','70px');
@@ -44,18 +44,18 @@ $(".nav2").click(function(){
     $(".nav").css('display','block');
     $(".nav2").css('display','none');
 });
-$(".ShowAll").click(function(){
-    if($(".ShowAll").text()=="See All"){
-        console.log($(".ShowAll").text());
-    $(".Table").css("height","70vh")
-    $(".Table").css("overflow-y","scroll")
-    $(".ShowAll").text("hide")
-    return ;
-    }
-    $(".Table").css("height","358px")
-    $(".Table").css("overflow-y","hidden")
-    $(".ShowAll").text("See All")
-})
+// $(".ShowAll").click(function(){
+//     if($(".ShowAll").text()=="See All"){
+//         console.log($(".ShowAll").text());
+//     $(".Table").css("height","70vh")
+//     $(".Table").css("overflow-y","scroll")
+//     $(".ShowAll").text("hide")
+//     return ;
+//     }
+//     $(".Table").css("height","358px")
+//     $(".Table").css("overflow-y","hidden")
+//     $(".ShowAll").text("See All")
+// })
 $(".BookToAdd_Evaluate").click(function(e){
     $("."+$(this).attr("id")+"1").prop("disabled",false)
     $("."+$(this).attr("id")+"2").prop("disabled",false)

@@ -213,6 +213,23 @@ td, th {
   font-size: 2em;
 }
 .Table{
-  height: 358px;
-  overflow-y:hidden;
+  height: 400px;
+  /* overflow-y:hidden; */
+}
+.tdata{
+  display: inline;
+  float:right;
+}
+.nextbtn{
+  display: inline;
+  padding: 3px 10px;
+  width:4.9vw;
+}
+.prevbtn{
+  display: inline;
+  padding: 3px 10px;
+  width:5vw;
+}
+.Elem{
+  display: inline;
 }

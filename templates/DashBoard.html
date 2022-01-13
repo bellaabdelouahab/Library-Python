@@ -30,7 +30,7 @@
 	<div class="col-div-3">
 		<div class="box">
 			{% if BookToAdd %}
-				<p>{{BookToAdd}}<br/><span>Reserved Books</span></p>
+				<p>{{BookToAdd}}<br/><span>Books To Add</span></p>
 			{% endif %}
 			<i class="fa fa-shopping-bag box-icon"></i>
 		</div>
@@ -38,7 +38,7 @@
 	<div class="col-div-3">
 		<div class="box">
 			{% if ToReserve %}
-				<p>{{ToReserve}}<br/><span>Reserved Books</span></p>
+				<p>{{ToReserve}}<br/><span>Request</span></p>
 			{% endif %}
 			<i class="fa fa-tasks box-icon"></i>
 		</div>
@@ -53,12 +53,12 @@
 			</div>
 			<table>
 				<tr>
-					<th>Company</th>
-					<th>Contact</th>
-					<th>Country</th>
+					<th>Title</th>
+					<th>Authors</th>
+					<th>Added Date</th>
 				</tr>
-				{% if Books %}
-					{% for result in Books %}
+				{% if LastAdded %}
+					{% for result in LastAdded %}
 						<tr >
 							<td>{{ result[0] }}</td>
 							<td>{{ result[1] }}</td>
